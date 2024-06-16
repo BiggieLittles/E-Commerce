@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
     const tagData = await Tag.findAll({
       include: [{ model: Product }],
     });
+    console.log("returned tags: ", tagData);
     res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json({ message: "Tags not found!" });
